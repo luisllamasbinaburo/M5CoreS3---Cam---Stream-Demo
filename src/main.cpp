@@ -25,7 +25,7 @@ void setup() {
         ret = nvs_flash_init();
     }
 
-    Serial.begin(15200);
+    Serial.begin(115200);
     M5.begin();
 
     // BM8563 Init (clear INT)
@@ -35,9 +35,6 @@ void setup() {
 
     M5.In_I2C.bitOn(AW9523_ADDR, 0x03, 0b10000000, 100000L);  // BOOST_EN
 
-#if MONKEY_TEST_ENABLE
-    M5.Speaker.setAllChannelVolume(0);
-#endif
     M5.Display.setBrightness(60);
 
     lv_init();
